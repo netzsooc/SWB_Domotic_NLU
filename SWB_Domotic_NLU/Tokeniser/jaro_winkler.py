@@ -6,20 +6,31 @@ Created on 27/09/2012
 import jellyfish
 
 def jaro_winkler(string1, string2):
-    m = 0
+    if string1 == string2:
+        return 1.0
+    
     len1 = len(string1)
     len2 = len(string2)
     floor = (max(len1, len2) / 2) - 1
     
     if floor < 0:
         floor = 0
-    t = floor / 2
+    t = 0
+    m = 0
     
-#    if not len1 or not len2:
-#        return 0
-    
-    for i in range(max(len1, len2)):
-        for j in range(floor):
-            
+    for i in range(len1):
+        start = max(0, i - floor)
+        end = min(i + floor + 1, len2)
+        for j in range(start, end):
+            if string1[i] == string2[j]:
+                m += 1
+                if i != j:
+                    t += 1
+    if m == 0:
+        return 0
+    m = float(m)
+    t /= 2.0
+    return (m / len1 + m / len2 + (m - t) / m) / 3
 
-print jellyfish.jaro_winkler("hello", "goodbye")    
+print jaro_winkler("dwayne", "duane")
+print jellyfish.jaro_distance("dwayne", "duane")
