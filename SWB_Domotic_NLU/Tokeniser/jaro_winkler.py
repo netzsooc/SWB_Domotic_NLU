@@ -17,6 +17,8 @@ def jaro_winkler(string1, string2):
         floor = 0
     t = 0
     m = 0
+    match1 = ""
+    match2 = ""
     
     for i in range(len1):
         start = max(0, i - floor)
@@ -25,12 +27,16 @@ def jaro_winkler(string1, string2):
             if string1[i] == string2[j]:
                 m += 1
                 if i != j:
+                    match1 += string1[i]
+                    match2 += string2[j]
                     t += 1
+                    continue
+                match1 += string1[i]
+                match2 += string2[j]
     if m == 0:
         return 0
     m = float(m)
     t /= 2.0
+    print match1
+    print match2
     return (m / len1 + m / len2 + (m - t) / m) / 3
-
-print jaro_winkler("dwayne", "duane")
-print jellyfish.jaro_distance("dwayne", "duane")
