@@ -1,0 +1,19 @@
+{
+	encender: 1,
+	prender: 1,
+	iluminar: 1,
+	alumbrar: 1,
+	iniciar: 1,
+	empezar: 1,
+	arrancar: 1,
+	comenzar: 1,
+	lanzar: 1
+}
+
+{
+	terminar: 0,
+	finalizar: 0,
+	concluir: 0,
+	apagar: 0,
+	extinguir: 0,
+}
