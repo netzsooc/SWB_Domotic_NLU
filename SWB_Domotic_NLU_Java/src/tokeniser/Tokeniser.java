@@ -13,9 +13,12 @@ public class Tokeniser {
 
 	/**
 	 * @param args
+	 * @author NetzSoOc
+	 * @version 0.0.1
 	 */
 	
 	public static String join(String[] arr, String conj){
+		/**@return String */
 		String exit = "";
 		for (String item: arr){
 			exit = exit.concat(item).concat(conj);
